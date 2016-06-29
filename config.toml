@@ -1,0 +1,7 @@
+baseurl = "http://replace-this-with-your-hugo-site.com/"
+languageCode = "en-us"
+title = "My personal tech wiki (attempt)"
+
+[taxonomies]
+tag = "tags"
+category = "categories"
