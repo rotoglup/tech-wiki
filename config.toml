@@ -1,4 +1,4 @@
-baseurl = "http://replace-this-with-your-hugo-site.com/"
+baseurl = "https://rotoglup.github.io/tech-wiki/"
 languageCode = "en-us"
 title = "My personal tech wiki (attempt)"
 
