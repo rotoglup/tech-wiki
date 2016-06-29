@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.16" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Noticia+Text:400,700|Marcellus+SC'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <link rel="stylesheet" href="http://replace-this-with-your-hugo-site.com/css/styles.css">
+    <link rel="stylesheet" href="http://replace-this-with-your-hugo-site.com/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://replace-this-with-your-hugo-site.com/index.xml">
+
+    
+    <title>ETC texture format - My personal tech wiki (attempt)</title>
+    <meta property='og:title' content="ETC texture format - My personal tech wiki (attempt)">
+    <meta property="og:type" content="article">
+    
+
+    <meta property="og:url" content="http://replace-this-with-your-hugo-site.com/article/ETC-texture-format/">
+    
+    
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":"http:\/\/replace-this-with-your-hugo-site.com\/"
+    },
+    "headline": "ETC texture format |  ",
+    "image": {
+      "@type": "ImageObject",
+      "url": "",
+      "height": 700,
+      "width": 700
+    },
+    "datePublished": "2016-06-29T21:32:50JST",
+    "dateModified": "2016-06-29T21:32:50JST",
+    "author": {
+      "@type": "Person",
+      "name": "",
+      "image": "http:\/\/replace-this-with-your-hugo-site.com\/images/logo.png"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "http:\/\/replace-this-with-your-hugo-site.com\/images/logo.png",
+        "height": 60,
+        "width": 60
+      }
+    },
+    "description": ""
+  }
+</script>
+</head>
+
+<body>
+
+  <header class="l-header">
+    <div class="p-logo">
+      <a href="http://replace-this-with-your-hugo-site.com/">My personal tech wiki (attempt)</a>
+    </div>
+  </header>
+
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-9">
+
+      <article class="single">
+        <div class="image" style="background-image: url(http://replace-this-with-your-hugo-site.com/images/default.jpg);"></div>
+        <div class="body">
+          <h1>ETC texture format</h1>
+          
+
+<p>As of 2016, comes in two flavors :</p>
+
+<ul>
+<li>ETC1, the original, RGB only (2005)</li>
+<li>ETC2, more quality + sRGB + RGBA
+
+<ul>
+<li>mandatory in OpenGL ES 3.0 and OpenGL 4.3</li>
+</ul></li>
+</ul>
+
+<p>More info on <a href="https://en.wikipedia.org/wiki/Ericsson_Texture_Compression">wikipedia</a>.</p>
+
+<h2 id="platform-support">Platform support</h2>
+
+<h3 id="etc1">ETC1</h3>
+
+<ul>
+<li>Android: 2.2+</li>
+</ul>
+
+<h3 id="etc2">ETC2</h3>
+
+<ul>
+<li>Android: 4.3+, Nexus 4+, Galaxy S5</li>
+<li>iOS: iOS 7+, iPhone 5s+</li>
+</ul>
+
+<h2 id="tools-etc1">Tools (ETC1)</h2>
+
+<p>Globally found nothing good, to build <a href="No page found with path or logical name "KTX-texture-container.md".
+">KTX</a> files, from bad to worse :</p>
+
+<h3 id="pvrtextool">PVRTexTool</h3>
+
+<ul>
+<li>No <code>TIF</code> support as input</li>
+<li>Awfully slow with default settings, use <code>-q pvrtcfast</code></li>
+</ul>
+
+<h3 id="mali-gpu-texture-compression-tool">Mali GPU Texture compression tool</h3>
+
+<ul>
+<li><a href="http://malideveloper.arm.com/resources/tools/mali-gpu-texture-compression-tool">http://malideveloper.arm.com/resources/tools/mali-gpu-texture-compression-tool</a> ?</li>
+<li>uses <code>etcpack.exe</code> through command line, along with <code>ImageMagick</code></li>
+<li>awfully slow</li>
+</ul>
+
+<h3 id="amd-compress">AMD Compress</h3>
+
+<ul>
+<li>open source, fast</li>
+<li>crashes when generating mipmaps (at the last 1x1 pixel level)</li>
+</ul>
+
+<h3 id="etcpack">etcpack</h3>
+
+<p>Only supports <code>PPM</code> files as input</p>
+
+<h3 id="untested">Untested</h3>
+
+<ul>
+<li><a href="https://developer.qualcomm.com/software/adreno-gpu-sdk/faq">https://developer.qualcomm.com/software/adreno-gpu-sdk/faq</a></li>
+</ul>
+
+<h2 id="libs">Libs</h2>
+
+<h3 id="rg-etc1">rg-etc1</h3>
+
+<ul>
+<li><a href="https://code.google.com/archive/p/rg-etc1/">https://code.google.com/archive/p/rg-etc1/</a>, by Rich Geidrich</li>
+<li>According to this benchmark, <a href="https://bitbucket.org/wolfpld/etcpak/wiki/Home">https://bitbucket.org/wolfpld/etcpak/wiki/Home</a>, quite fast</li>
+</ul>
+
+<h3 id="others">others</h3>
+
+<ul>
+<li><a href="https://github.com/paulvortex/RwgTex">https://github.com/paulvortex/RwgTex</a></li>
+<li><a href="https://github.com/GameTechDev/ISPCTextureCompressor">https://github.com/GameTechDev/ISPCTextureCompressor</a>, promising</li>
+</ul>
+
+        </div>
+
+        <aside>
+          <section>
+            <div>
+              <div class="p-share">
+                <a href="http://www.facebook.com/sharer.php?src=bm&u=http%3a%2f%2freplace-this-with-your-hugo-site.com%2farticle%2fETC-texture-format%2f&t=ETC%20texture%20format" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-facebook"></i></a>
+                <a href="http://twitter.com/intent/tweet?url=http%3a%2f%2freplace-this-with-your-hugo-site.com%2farticle%2fETC-texture-format%2f&text=ETC%20texture%20format&tw_p=tweetbutton" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-twitter"></i></a>
+                <a href="https://plus.google.com/share?url=http%3a%2f%2freplace-this-with-your-hugo-site.com%2farticle%2fETC-texture-format%2f" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-google-plus"></i></a>
+                <a href="http://getpocket.com/edit?url=http%3a%2f%2freplace-this-with-your-hugo-site.com%2farticle%2fETC-texture-format%2f&title=ETC%20texture%20format" onclick="window.open(this.href, 'PCwindow', 'width=550, height=350, menubar=no, toolbar=no, scrollbars=yes'); return false;"><i class="fa fa-get-pocket"></i></a>
+              </div>
+            </div>
+          </section>
+
+          
+          
+          
+        </aside>
+
+      </article>
+
+    </div>
+    <div class="col-md-3">
+      <aside class="site">
+
+  
+  <section>
+    <header>Table Of Contents</header>
+    <div><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#platform-support">Platform support</a>
+<ul>
+<li><a href="#etc1">ETC1</a></li>
+<li><a href="#etc2">ETC2</a></li>
+</ul></li>
+<li><a href="#tools-etc1">Tools (ETC1)</a>
+<ul>
+<li><a href="#pvrtextool">PVRTexTool</a></li>
+<li><a href="#mali-gpu-texture-compression-tool">Mali GPU Texture compression tool</a></li>
+<li><a href="#amd-compress">AMD Compress</a></li>
+<li><a href="#etcpack">etcpack</a></li>
+<li><a href="#untested">Untested</a></li>
+</ul></li>
+<li><a href="#libs">Libs</a>
+<ul>
+<li><a href="#rg-etc1">rg-etc1</a></li>
+<li><a href="#others">others</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+  </section>
+  
+
+  
+
+  <section>
+    <header>LatestPosts</header>
+    <div>
+      
+      <article class="li">
+  <a href="http://replace-this-with-your-hugo-site.com/article/ETC-texture-format/" class="clearfix">
+    <div class="image" style="background-image: url(http://replace-this-with-your-hugo-site.com/images/default.jpg);"></div>
+    <footer>
+      <div class="date">
+        <time>Wed, Jun 29, 2016</time>
+      </div>
+      <h2 class="title">ETC texture format</h2>
+    </footer>
+  </a>
+</article>
+
+      
+    </div>
+  </section>
+
+  
+  <section>
+    <header>category</header>
+    <div>
+      <ul>
+        
+      </ul>
+    </div>
+  </section>
+  
+  <section>
+    <header>tag</header>
+    <div>
+      <ul>
+        <li><a href="http://replace-this-with-your-hugo-site.com/tags/texture">texture</a></li><li><a href="http://replace-this-with-your-hugo-site.com/tags/tools">tools</a></li>
+      </ul>
+    </div>
+  </section>
+  
+
+</aside>
+
+    </div>
+  </div>
+</div>
+
+
+<footer class="l-footer">
+  <p>&copy; 2016 My personal tech wiki (attempt)</p>
+  <p>Powered by <a href="http://gohugo.io" target="_blank" rel="nofollow">Hugo</a>, Theme <a href="https://github.com/dim0627/hugo_theme_robust" target="_blank" rel="nofollow">robust</a> designed by <a href="http://yet.unresolved.xyz" target="_blank" rel="nofollow">Daisuke Tsuji</a></p>
+</footer>
+
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+  </body>
+</html>
+
