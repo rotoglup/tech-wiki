@@ -47,3 +47,7 @@ private final EGLWindowSurfaceFactory mWindow_sRGB_SurfaceFactory = new EGLWindo
     }
 };
 ```
+
+Links
+====================================
+* http://www.g-truc.net/doc/Effective%20OpenGL.pdf

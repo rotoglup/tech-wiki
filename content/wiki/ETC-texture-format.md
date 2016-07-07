@@ -1,6 +1,6 @@
 +++
 date = "2016-06-29T21:32:50+02:00"
-draft = true
+draft = false
 title = "ETC texture format"
 tags = [ "texture", "tools" ]
 
@@ -21,17 +21,21 @@ Platform support
 
 ### ETC2
 * Android: 4.3+, Nexus 4+, Galaxy S5
-* iOS: iOS 7+, iPhone 5s+ 
+* iOS: iOS 7+, iPhone 5s+
 
-Tools (ETC1)
+So far, I've not been able to ETC2 sRGB on Galaxy S7 - the rendering is the same as RGB textures - probably a bug on my side.
+
+Tools (ETC1 mainly)
 --------------------
 
 Globally found nothing good, to build [KTX]({{< relref "KTX-texture-container.md" >}}) files, from bad to worse :
 
 ### PVRTexTool
 
+* Version 4.16
 * No `TIF` support as input
 * Awfully slow with default settings, use `-q pvrtcfast`
+* Bad results for sRGB ETC2 output (weird colors)
 
 ### Mali GPU Texture compression tool
 
@@ -39,7 +43,7 @@ Globally found nothing good, to build [KTX]({{< relref "KTX-texture-container.md
 * uses `etcpack.exe` through command line, along with `ImageMagick`
 * awfully slow
 
-### AMD Compress
+### AMD Compressonator
 
 * open source, fast
 * crashes when generating mipmaps (at the last 1x1 pixel level)
