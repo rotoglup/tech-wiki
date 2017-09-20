@@ -1,9 +1,6 @@
-+++
-date = "2016-07-15T12:10:48+02:00"
-draft = true
-title = "Android development"
-
-+++
+Title: Android development
+Date: 2016-07-15 12:10
+Tags: android
 
 Permissions
 ================================================

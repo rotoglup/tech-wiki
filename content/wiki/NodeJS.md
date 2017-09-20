@@ -1,9 +1,6 @@
-+++
-date = "2016-07-12T14:23:31+02:00"
-draft = true
-title = "NodeJS"
-
-+++
+Title: NodeJS
+Date: 2016-07-12 14:23
+Tags: js
 
 Deployment/publishing
 ===============================

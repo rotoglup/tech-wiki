@@ -1,9 +1,6 @@
-+++
-date = "2016-12-27T23:47:40+01:00"
-draft = true
-title = "Frustum culling"
-
-+++
+Title: Frustum culling
+Date: 2016-12-27 23:47
+Tags: algorithms, 3D
 
 References
 ==============================================================================

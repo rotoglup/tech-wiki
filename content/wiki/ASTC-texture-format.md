@@ -1,10 +1,6 @@
-+++
-date = "2016-07-07T21:32:50+02:00"
-draft = true
-title = "ASTC texture format"
-tags = [ "texture", "tools" ]
-
-+++
+Title: ASTC texture format
+Date: 2016-07-07 21:32
+Tags: texture, tools
 
 Tools
 ---------------------------------

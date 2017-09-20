@@ -1,10 +1,7 @@
-+++
-date = "2016-06-29T21:32:50+02:00"
-draft = false
-title = "ETC texture format"
-tags = [ "texture", "tools" ]
+Title: ETC texture format
+Date: 2016-06-29 21:32
+Tags: texture, tools
 
-+++
 
 As of 2016, comes in two flavors :
 
@@ -28,7 +25,7 @@ So far, I've not been able to ETC2 sRGB on Galaxy S7 - the rendering is the same
 Tools (ETC1 mainly)
 --------------------
 
-Globally found nothing good, to build [KTX]({{< relref "KTX-texture-container.md" >}}) files, from bad to worse :
+Globally found nothing good, to build [KTX]({filename}KTX-texture-container.md) files, from bad to worse :
 
 ### PVRTexTool
 
